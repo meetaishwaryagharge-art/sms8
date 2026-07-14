@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login | Instavalue SMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --primary:#0ea5e9; --primary-light:#e0f2fe; --primary-dark:#0369a1; --accent:#06b6d4;
+    --text:#0f172a; --text-muted:#64748b; --border:#bae6fd; --red:#ef4444;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{
+    font-family:'Plus Jakarta Sans', sans-serif; min-height:100vh; margin:0;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 40%, #f0fdf4 100%);
+  }
+  .login-card{
+    background:#fff; border-radius:20px; padding:44px 38px; width:100%; max-width:380px;
+    box-shadow:0 20px 60px rgba(14,165,233,0.2); border:1.5px solid var(--border);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; margin-bottom:28px; }
+  .nav-logo-icon{
+    width:40px; height:40px; background:linear-gradient(135deg,var(--primary),var(--accent));
+    border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .nav-logo-icon svg{ width:22px; height:22px; fill:white; }
+  .brand-txt{ font-family:'Sora',sans-serif; font-weight:700; color:var(--primary-dark); font-size:1.05rem; line-height:1.15; }
+  .brand-txt span{ color:var(--accent); }
+  .brand-txt small{ display:block; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:0.65rem; color:var(--text-muted); letter-spacing:0.05em; }
+  h1{ font-family:'Sora',sans-serif; font-size:1.3rem; font-weight:700; color:var(--text); margin-bottom:6px; }
+  p.sub{ color:var(--text-muted); font-size:0.87rem; margin-bottom:26px; }
+  label{ font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.03em; color:#334155; margin-bottom:6px; display:block; }
+  input{
+    width:100%; padding:11px 16px; border-radius:10px; border:1.5px solid var(--border);
+    background:#f8fafc; margin-bottom:16px; font-family:inherit; font-size:0.9rem;
+  }
+  input:focus{ outline:none; border-color:var(--primary); background:#fff; }
+  .btn-login{
+    width:100%; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; border:none;
+    padding:12px; border-radius:50px; font-weight:700; font-size:0.9rem; font-family:inherit;
+    box-shadow:0 4px 16px rgba(14,165,233,0.3); cursor:pointer;
+  }
+  .btn-login:hover{ transform:translateY(-1px); }
+  .btn-login:disabled{ opacity:0.7; }
+  #loginError{ font-size:0.82rem; color:var(--red); margin-top:14px; display:none; }
+  .back-link{ display:block; text-align:center; margin-top:20px; font-size:0.82rem; color:var(--text-muted); text-decoration:none; }
+  .back-link:hover{ color:var(--primary-dark); }
+</style>
+</head>
+<body>
+
+<div class="login-card">
+  <div class="brand">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+    </div>
+    <div class="brand-txt">Instavalue<span>SMS</span><small>ADMIN PANEL</small></div>
+  </div>
+  <h1>Sign in</h1>
+  <p class="sub">Access the enquiries dashboard with your admin account.</p>
+
+  <form id="loginForm">
+    <label>Email address</label>
+    <input type="email" id="loginEmail" placeholder="admin@instavalue.com" required>
+    <label>Password</label>
+    <input type="password" id="loginPassword" placeholder="••••••••" required>
+    <button type="submit" class="btn-login" id="loginBtn">Sign In</button>
+    <div id="loginError"><i class="fa-solid fa-triangle-exclamation me-1"></i> Invalid email or password.</div>
+  </form>
+
+  <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left me-1"></i> Back to website</a>
+</div>
+
+<!-- ============================================================
+     FIREBASE AUTH — use the SAME config as index.html and
+     enquiries-dashboard.html
+============================================================= -->
+<script>
+  const form = document.getElementById('loginForm');
+  const btn = document.getElementById('loginBtn');
+  const errorBox = document.getElementById('loginError');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // 1. SET YOUR DESIRED EMAIL AND PASSWORD HERE
+    const adminEmail = "admin@instavalue.com";
+    const adminPassword = "MySecurePassword123";
+
+    // 2. GET USER INPUT
+    const emailInput = document.getElementById('loginEmail').value;
+    const passwordInput = document.getElementById('loginPassword').value;
+
+    btn.disabled = true;
+    btn.textContent = 'Signing in...';
+    errorBox.style.display = 'none';
+
+    // 3. CHECK CREDENTIALS
+    if (emailInput === adminEmail && passwordInput === adminPassword) {
+      // Redirect to the dashboard on success
+      window.location.href = "enquiries-dashboard.html";
+    } else {
+      // Show error on failure
+      errorBox.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Sign In';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – Instavalue SMS</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0ea5e9;
+    --primary-light: #e0f2fe;
+    --primary-dark: #0369a1;
+    --accent: #06b6d4;
+    --accent2: #38bdf8;
+    --green: #10b981;
+    --purple: #8b5cf6;
+    --orange: #f59e0b;
+    --bg: #f0f9ff;
+    --bg2: #e0f2fe;
+    --bg3: #f8fafc;
+    --white: #ffffff;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    --border: #bae6fd;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 24px rgba(14,165,233,0.10);
+    --shadow-lg: 0 8px 40px rgba(14,165,233,0.18);
+    --radius: 18px;
+    --radius-sm: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(240,249,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--primary-dark);
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-logo-icon {
+    width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-ghost {
+    padding: 8px 20px; border-radius: 8px; border: 1.5px solid var(--border);
+    background: transparent; color: var(--primary-dark); font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; font-family: inherit; transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--primary-light); border-color: var(--primary); }
+  .btn-primary {
+    padding: 9px 22px; border-radius: 8px; border: none;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; font-size: 0.88rem; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(14,165,233,0.3);
+  }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 130px 40px 60px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    text-align: center;
+  }
+  .section-label {
+    display: inline-block; background: var(--primary-light); color: var(--primary-dark);
+    padding: 4px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .page-title { font-family: 'Sora', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+  .page-sub { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── CONTACT MAIN CONTENT ── */
+  section { padding: 40px 40px 90px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+  .form-info h3 { font-family: 'Sora', sans-serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; color: var(--text); }
+  .form-info p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; }
+  
+  .contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .contact-icon { width: 44px; height: 44px; background: var(--primary-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .contact-text { font-size: 0.88rem; color: var(--text-muted); }
+  .contact-text strong { display: block; color: var(--text); font-weight: 700; margin-bottom: 2px; }
+
+  /* ── FORM STYLES ── */
+  .enquiry-form {
+    background: white; border-radius: var(--radius); padding: 36px;
+    box-shadow: var(--shadow-lg); border: 1.5px solid var(--border);
+  }
+  .form-title { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; color: var(--text); }
+  .form-subtitle { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 26px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 16px; border-radius: 10px;
+    border: 1.5px solid var(--border); background: var(--bg);
+    font-family: inherit; font-size: 0.9rem; color: var(--text);
+    transition: all 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--primary); background: white;
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.12);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* ── CONSENT CHECKBOX ROW ── */
+  .checkbox-row { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 12px; 
+    margin-bottom: 24px; 
+    font-size: 0.82rem; 
+    color: var(--text-muted); 
+    line-height: 1.5; 
+    background: #f0fdf4; 
+    padding: 14px; 
+    border-radius: var(--radius-sm); 
+    border: 1px solid #bbf7d0;
+  }
+  .checkbox-row input[type=checkbox] { margin-top: 3px; accent-color: var(--green); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+  .checkbox-row label { cursor: pointer; color: #1e293b; }
+
+  .submit-btn {
+    width: 100%; padding: 15px; border-radius: 12px; border: none;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; font-size: 1rem; font-weight: 700; font-family: inherit;
+    cursor: pointer; transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(14,165,233,0.35);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(14,165,233,0.45); }
+
+  .form-success {
+    display: none; text-align: center; padding: 30px;
+    background: #d1fae5; border-radius: 12px; margin-top: 20px;
+  }
+  .form-success.show { display: block; }
+  .form-success .check { font-size: 2.5rem; }
+  .form-success h4 { font-size: 1.1rem; font-weight: 700; color: #065f46; margin: 8px 0 4px; }
+  .form-success p { font-size: 0.88rem; color: #047857; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.8);
+    padding: 60px 40px 30px;
+  }
+  .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+ 
+  .footer-logo { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 14px; }
+  .footer-logo span { color: var(--accent2); }
+  .footer-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+  .footer-contact a { display: flex; align-items: center; gap: 8px; color: var(--accent2); font-size: 0.85rem; text-decoration: none; margin-bottom: 8px; }
+  .footer-col h4 { font-size: 0.88rem; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.84rem; margin-bottom: 9px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent2); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom a:hover { color: white; }
+
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .form-grid, .footer-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 40px 20px 60px; }
+    .form-row { grid-template-columns: 1fr; }
+    .page-title { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </div>
+    Instavalue <span>SMS</span>
+  </a>
+  <div class="nav-links">
+     <a href="index.html">Home</a>
+    <a href="digital marketing.html">Digital Marketing</a>
+   
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+  
+ <!-- Replace your current nav-actions with this -->
+<div class="nav-actions">
+  <a href="login.html" class="btn-ghost" style="text-decoration: none; display: inline-block;">Login</a>
+  <button class="btn-primary" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Free Signup</button>
+</div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-label">Connect With Us</div>
+  <h1 class="page-title">Let’s Start a Conversation</h1>
+  <p class="page-sub">Have questions about integrations, custom volumes, or capabilities? Our communication deployment experts are standing by to guide your enterprise.</p>
+</div>
+
+<!-- MAIN SECTION -->
+<section>
+  <div class="section-inner">
+    <div class="form-grid">
+      
+      <!-- Contact Information Details -->
+      <div class="form-info">
+        <h3>We'd Love to Hear From You</h3>
+        <p>Whether you need Bulk SMS, WhatsApp API, or an advanced omni-channel messaging layout for your company setups — get personalized parameters and staging configurations straight away.</p>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            <strong>Call Us</strong>
+            +91 80801 51510
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text">
+            <strong>Email Us</strong>
+            Info@instavalue.com
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <strong>Our Office</strong>
+            SWAYAMBHOO CHS, Plot no: 30/A-8, Gorai-1, Borivali West, Mumbai
+          </div>
+        </div>
+
+        <!-- Integrated Rich Communication Services (RCS) Features Section -->
+        <div style="margin-top:28px; background: white; padding: 20px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); box-shadow: var(--shadow);">
+          <div style="font-size:0.9rem; font-weight:700; color:var(--primary-dark); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+            <span>📱</span> Upgrade to RCS Business Messaging
+          </div>
+          <p style="font-size:0.84rem; color:var(--text-muted); line-height:1.6; margin-bottom:12px;">
+            Transform dry metrics into verified, rich customer interactions. Enable modern branding, rich cards, carousels, and verified profiles right inside the native inbox.
+          </p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--text);">
+              <span style="color:var(--primary); font-weight:700;">✦</span> Verified Sender Profile & Branded Header Icons
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--text);">
+              <span style="color:var(--primary); font-weight:700;">✦</span> Carousel Cards & Action Buttons (Maps, Web, Calls)
+            </div>
+            <div style="display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--text);">
+              <span style="color:var(--primary); font-weight:700;">✦</span> Authentic Read Receipts & Live Interaction Performance
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px;">
+          <div style="font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:12px;">What you get for FREE:</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-muted);">
+              <span style="color:var(--green);font-weight:700;">✓</span> Free message credits to test our ecosystem
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-muted);">
+              <span style="color:var(--green);font-weight:700;">✓</span> Personal onboarding with our channel experts
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-muted);">
+              <span style="color:var(--green);font-weight:700;">✓</span> Sandbox access for API & Webhook integrations
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actionable Contact Form -->
+      <div class="enquiry-form">
+        <div class="form-title">Send Us an Enquiry</div>
+        <div class="form-subtitle">Fill the form below and we'll get back to you within 2 hours.</div>
+        
+        <div id="formWrap">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name *</label>
+              <input type="text" id="fname" placeholder="Rahul" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name *</label>
+              <input type="text" id="lname" placeholder="Sharma" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Business Email *</label>
+            <input type="email" id="email" placeholder="rahul@company.com" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" id="company" placeholder="Your Company Ltd.">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Required *</label>
+            <select id="service">
+              <option value="">Select a Service</option>
+              <option>Rich Communication Service (RCS) Messaging</option>
+              <option>WhatsApp Business API</option>
+              <option>Transactional Bulk SMS / OTPs</option>
+              <option>Promotional Bulk SMS Campaigns</option>
+              <option>Voice Call Solutions & IVR</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message / Requirements</label>
+            <textarea id="message" placeholder="Tell us about your campaign use-cases or volume configurations..."></textarea>
+          </div>
+
+          <!-- Bada Business Consent Checkbox Line -->
+          <div class="checkbox-row">
+            <input type="checkbox" id="badaConsent" required>
+            <label for="badaConsent">I accept the terms and conditions for receiving communication via SMS, WhatsApp, RCS, or Email from Instavalue SMS.</label>
+          </div>
+
+          <button class="submit-btn" onclick="submitForm()">
+            🚀 Submit Message
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check">🎉</div>
+          <h4>Message Sent Successfully!</h4>
+          <p>Thank you! Our communication experts will reach out to your business within 2 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="about">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Instavalue <span>SMS</span></div>
+      <div class="footer-desc">India's leading Bulk SMS & WhatsApp Messaging Service Provider. Enabling businesses to send important messages, OTPs, notifications and promotional content at scale.</div>
+      <div class="footer-contact">
+        <a href="mailto:Info@instavalue.com">✉️ Info@instavalue.com</a>
+        <a href="tel:+918080151510">📞 +91 80801 51510</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="#">Instavalue SMS</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Articles</a>
+      <a href="#">FAQ</a>
+      <a href="#">Solutions</a>
+      <a href="#">API Documentation</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Features & Pricing</h4>
+      <a href="#">Pricing Plans</a>
+      <a href="#">SMS Gateway API</a>
+      <a href="#">Features Overview</a>
+      <a href="#">WhatsApp API</a>
+      <a href="#">Voice Solutions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Instavalue SMS. All rights reserved.</span>
+    <div style="display:flex;gap:16px;">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+<script>
+  function submitForm() {
+    const fname = document.getElementById('fname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const consent = document.getElementById('badaConsent').checked;
+
+    if (!fname || !email || !phone || !service) {
+      alert('Please fill in all required fields (Name, Email, Phone, Service).');
+      return;
+    }
+    
+    if (!consent) {
+      alert('Please accept the communication terms to proceed.');
+      return;
+    }
+
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atomic Digital Marketing — Strategic Marketing Engineered for Growth</title>
+<!-- SYNCHRONIZED FONTS FROM CONTACT FILE -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Color System from contact.html */
+    --primary: #0ea5e9;
+    --primary-light: #e0f2fe;
+    --primary-dark: #0369a1;
+    --accent: #06b6d4;
+    --accent2: #38bdf8;
+    --green: #10b981;
+    --purple: #8b5cf6;
+    --orange: #f59e0b;
+    --bg: #f0f9ff;
+    --bg2: #e0f2fe;
+    --bg3: #f8fafc;
+    --white: #ffffff;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    --border: #bae6fd;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 24px rgba(14,165,233,0.10);
+    --shadow-lg: 0 8px 40px rgba(14,165,233,0.18);
+    --radius: 18px;
+    --radius-sm: 10px;
+
+    /* Font variables adapted to match the contact file */
+    --disp: 'Sora', sans-serif;
+    --body: 'Plus Jakarta Sans', sans-serif;
+    --mono: monospace;
+    
+    --line: rgba(14, 165, 233, 0.15);
+    --line-dark: #bae6fd;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  
+  /* SYNCHRONIZED BODY FONT AND BACKGROUND */
+  body{font-family:var(--body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .eyebrow{font-family:var(--body);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:var(--primary-dark);font-weight:700;}
+  .eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);display:inline-block;}
+  .section-inner{max-width:1240px;margin:0 auto;padding:0 40px;}
+  section{padding:120px 0;}
+  h1,h2,h3,h4{font-family:var(--disp);font-weight:600;letter-spacing:-0.01em;}
+  .btn{font-family:var(--body);font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:var(--radius-sm);border:1px solid transparent;cursor:pointer;transition:all .25s ease;}
+  .btn-signal{background:linear-gradient(135deg, var(--primary), var(--accent));color:var(--white);border:none;box-shadow:0 4px 14px rgba(14,165,233,0.3);}
+  .btn-signal:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,165,233,0.45);}
+  .btn-outline-dark{border-color:var(--line-dark);color:var(--white);background:rgba(255,255,255,0.05);}
+  .btn-outline-dark:hover{border-color:var(--white);background:rgba(255,255,255,0.15);}
+  .btn-outline-light{border-color:var(--primary-dark);color:var(--primary-dark);background:var(--white);box-shadow:0 4px 12px rgba(14,165,233,0.08);}
+  .btn-outline-light:hover{background:var(--bg2);transform:translateY(-2px);}
+
+  /* ── SYNCHRONIZED NAVBAR CSS FROM CONTACT FILE ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(240,249,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--primary-dark);
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-logo-icon {
+    width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-ghost {
+    padding: 8px 20px; border-radius: 8px; border: 1.5px solid var(--border);
+    background: transparent; color: var(--primary-dark); font-size: 0.88rem; font-weight: 600;
+    cursor: pointer; font-family: inherit; transition: all 0.2s;
+  }
+  .btn-ghost:hover { background: var(--primary-light); border-color: var(--primary); }
+  .btn-primary {
+    padding: 9px 22px; border-radius: 8px; border: none;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white; font-size: 0.88rem; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: all 0.2s;
+    box-shadow: 0 2px 12px rgba(14,165,233,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(14,165,233,0.4); }
+
+  /* ===== HERO ===== */
+  .hero{background:linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 40%, #f0fdf4 100%);color:var(--text);padding:180px 0 90px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(14,165,233,0.1) 1px, transparent 1px);background-size:26px 26px;opacity:0.7;pointer-events:none;}
+  .hero-grid{max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;position:relative;z-index:2;}
+  .hero-title{font-size:3.6rem;line-height:1.06;margin:20px 0 26px;color:var(--text);}
+  .hero-title em{font-style:normal;background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+  .hero-sub{font-size:1.08rem;color:var(--text-muted);max-width:480px;margin-bottom:38px;}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+  .hero-stats{display:flex;gap:44px;border-top:1px solid var(--border);padding-top:28px;}
+  .hero-stats div b{font-family:var(--disp);font-size:1.7rem;display:block;color:var(--primary-dark);}
+  .hero-stats div span{font-family:var(--body);font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;font-weight:700;}
+
+  /* Orbit layout configured for brand theme */
+  .orbit-wrap{position:relative;height:460px;display:flex;align-items:center;justify-content:center;}
+  .orbit-ring{position:absolute;border:1px solid var(--border);border-radius:50%;}
+  .orbit-ring.r1{width:200px;height:200px;animation:spin 18s linear infinite;}
+  .orbit-ring.r2{width:320px;height:320px;animation:spin 28s linear infinite reverse;}
+  .orbit-ring.r3{width:440px;height:440px;animation:spin 40s linear infinite;}
+  .nucleus{width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 30%, var(--primary), var(--primary-dark));display:flex;align-items:center;justify-content:center;font-family:var(--disp);font-weight:700;color:var(--white);font-size:0.85rem;letter-spacing:0.02em;text-align:center;z-index:2;box-shadow:0 0 40px rgba(14,165,233,0.3);}
+  .node{position:absolute;top:-11px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--white);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+  .node::after{content:attr(data-label);position:absolute;top:28px;left:50%;transform:translateX(-50%);font-family:var(--body);font-size:0.62rem;color:var(--text-muted);white-space:nowrap;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;}
+  @keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+  .orbit-ring{top:50%;left:50%;transform:translate(-50%,-50%);}
+  @media(prefers-reduced-motion:reduce){.orbit-ring{animation:none;}}
+
+  /* Trust parameters strip */
+  .trust{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;}
+  .trust .section-inner{display:flex;align-items:center;gap:40px;justify-content:space-between;flex-wrap:wrap;}
+  .trust-label{font-family:var(--body);font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;font-weight:700;}
+  .trust-logos{display:flex;gap:44px;flex-wrap:wrap;}
+  .trust-logos span{font-family:var(--disp);font-weight:700;color:var(--text-muted);font-size:1rem;letter-spacing:0.02em;}
+
+  /* ===== SECTION HEADS ===== */
+  .head{max-width:640px;margin-bottom:56px;}
+  .head h2{font-size:2.4rem;margin-top:14px;line-height:1.15;color:var(--text);}
+  .head p{color:var(--text-muted);margin-top:16px;font-size:1.02rem;}
+  section.on-dark .head p{color:var(--bg2);}
+
+  /* ===== SERVICES ===== */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;background:transparent;}
+  .service-card{background:var(--white);padding:38px 34px;transition:all .3s ease;border-radius:var(--radius);border:1.5px solid var(--border);box-shadow:0 4px 12px rgba(14,165,233,0.04);}
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(14,165,233,0.12);border-color:var(--primary);}
+  .service-num{font-family:var(--disp);font-size:0.75rem;color:var(--accent);margin-bottom:18px;display:block;font-weight:700;}
+  .service-card h3{font-size:1.15rem;margin-bottom:12px;color:var(--text);}
+  .service-card p{font-size:0.92rem;color:var(--text-muted);line-height:1.6;}
+  @media(max-width:900px){.services-grid{grid-template-columns:1fr;gap:16px;}}
+
+  /* ===== FEATURES DARK BAND ===== */
+  .features{background:linear-gradient(135deg, var(--primary-dark), #0284c7);color:var(--white);}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px;}
+  .features-grid h3{font-size:1.2rem;margin:20px 0 12px;color:var(--white);}
+  .features-grid p{color:rgba(255,255,255,0.8);font-size:0.94rem;line-height:1.6;}
+  .feature-mark{font-family:var(--disp);font-size:0.75rem;color:var(--accent);font-weight:700;}
+  @media(max-width:900px){.features-grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ===== PROCESS ===== */
+  .process-list{display:flex;flex-direction:column;}
+  .process-row{display:grid;grid-template-columns:100px 240px 1fr;gap:30px;padding:34px 0;border-top:1px solid var(--border);align-items:baseline;}
+  .process-row:last-child{border-bottom:1px solid var(--border);}
+  .process-num{font-family:var(--disp);color:var(--primary);font-size:0.95rem;font-weight:700;}
+  .process-row h3{font-size:1.25rem;color:var(--text);}
+  .process-row p{color:var(--text-muted);font-size:0.95rem;max-width:560px;}
+  @media(max-width:820px){.process-row{grid-template-columns:1fr;gap:8px;}}
+
+  /* ===== TESTIMONIALS ===== */
+  .testi-track{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi-card{background:var(--white);border:1.5px solid var(--border);padding:32px;border-radius:var(--radius);display:flex;flex-direction:column;justify-content:space-between;min-height:250px;box-shadow:0 4px 12px rgba(14,165,233,0.04);}
+  .testi-card p{font-size:0.96rem;color:var(--text);margin-bottom:24px;font-style:italic;}
+  .testi-who{display:flex;align-items:center;justify-content:space-between;font-family:var(--body);font-size:0.75rem;color:var(--text-muted);}
+  .testi-who b{color:var(--primary-dark);font-family:var(--body);font-weight:700;display:block;font-size:0.88rem;}
+  @media(max-width:980px){.testi-track{grid-template-columns:1fr;}}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-top:1px solid var(--border);background:var(--white);margin-bottom:8px;border-radius:var(--radius-sm);border:1px solid var(--border);}
+  .faq-item:last-child{border-bottom:1px solid var(--border);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--disp);font-size:1.02rem;color:var(--text);gap:20px;font-weight:600;}
+  .faq-q .plus{font-family:var(--disp);font-size:1.1rem;color:var(--primary);transition:transform .25s;flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg);color:var(--accent);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-item.open .faq-a{max-height:200px;}
+  .faq-a p{padding:0 26px 22px;color:var(--text-muted);font-size:0.94rem;max-width:680px;}
+
+  /* ===== CTA / FORM ===== */
+  .cta-band{background:linear-gradient(135deg, var(--text), #1e293b);color:var(--white);}
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  .cta-grid h2{font-size:2.3rem;line-height:1.15;margin-bottom:18px;}
+  .cta-grid p{color:rgba(255,255,255,0.7);margin-bottom:28px;max-width:420px;}
+  .cta-locations{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px;}
+  .cta-locations div{font-family:var(--body);font-size:0.78rem;color:rgba(255,255,255,0.55);}
+  .cta-locations div b{display:block;color:var(--white);font-family:var(--body);font-weight:600;font-size:0.9rem;margin-bottom:4px;}
+  
+  .form-card{background:var(--white);border-radius:var(--radius);padding:38px;color:var(--text);box-shadow:0 12px 40px rgba(0,0,0,0.15);border:1px solid var(--border);}
+  .form-group{margin-bottom:18px;}
+  .form-group label{font-family:var(--body);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);display:block;margin-bottom:8px;font-weight:600;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--bg);font-family:var(--body);font-size:0.92rem;color:var(--text);transition:all 0.2s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);background:var(--white);box-shadow:0 0 0 3px rgba(14,165,233,0.15);}
+  
+  .checkbox-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; background: #f0fdf4; padding: 14px; border-radius: var(--radius-sm); border: 1px solid #bbf7d0;}
+  .checkbox-row input[type=checkbox] { margin-top: 3px; accent-color: var(--green); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer; }
+  .checkbox-row label { cursor: pointer; color: #1e293b; text-align: left; }
+
+  .submit-btn{width:100%;padding:15px;border-radius:var(--radius-sm);border:none;background:linear-gradient(135deg, var(--primary), var(--accent));color:var(--white);font-family:var(--body);text-transform:uppercase;letter-spacing:0.05em;font-size:0.82rem;cursor:pointer;transition:all .2s;font-weight:700;box-shadow:0 4px 14px rgba(14,165,233,0.25);}
+  .submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(14,165,233,0.40);}
+  
+  .form-success { display: none; text-align: center; padding: 30px; background: #d1fae5; border-radius: 12px; margin-top: 20px; border: 1px solid #10b981; }
+  .form-success.show { display: block; }
+  .form-success .check { font-size: 2.5rem; }
+  .form-success h4 { font-size: 1.1rem; font-weight: 700; color: #065f46; margin: 8px 0 4px; }
+  .form-success p { font-size: 0.88rem; color: #047857; }
+  
+  /* ── SYNCHRONIZED FOOTER CSS FROM CONTACT FILE ── */
+  footer {
+    background: var(--text); color: rgba(255,255,255,0.8);
+    padding: 60px 40px 30px;
+  }
+  .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .footer-logo { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 14px; }
+  .footer-logo span { color: var(--accent2); }
+  .footer-desc { font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+  .footer-contact a { display: flex; align-items: center; gap: 8px; color: var(--accent2); font-size: 0.85rem; text-decoration: none; margin-bottom: 8px; }
+  .footer-col h4 { font-size: 0.88rem; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.84rem; margin-bottom: 9px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent2); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: rgba(255,255,255,0.4); }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-bottom a:hover { color: white; }
+
+  @media(max-width:980px){.nav-links{display:none;} .nav-phone{display:none;}}
+  @media(max-width:900px){.footer-grid { grid-template-columns: 1fr; } nav { padding: 0 20px; }.cta-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.hero-title{font-size:2.4rem;} .hero-grid{grid-template-columns:1fr;} .orbit-wrap{height:320px;} section{padding:80px 0;} .section-inner{padding:0 24px;} nav{padding:0 24px;} .services-grid,.features-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- SYNCHRONIZED NAVBAR FROM CONTACT FILE -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </div>
+    Instavalue <span>SMS</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="digital marketing.html" class="active">Digital Marketing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  
+  <!-- Replace your current nav-actions with this -->
+<div class="nav-actions">
+  <a href="login.html" class="btn-ghost" style="text-decoration: none; display: inline-block;">Login</a>
+  <button class="btn-primary" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Free Signup</button>
+</div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Digital Marketing Agency</div>
+      <h1 class="hero-title">Strategic marketing built to <em>split growth wide open.</em></h1>
+      <p class="hero-sub">We plan, build and run multi-channel campaigns across SEO, paid media, content and web — every decision backed by data, every pound accountable to revenue.</p>
+      <div class="hero-cta">
+        <a href="#enquiry" class="btn btn-signal">Get a Free Audit</a>
+        <a href="#work" class="btn btn-outline-light">View Our Work</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>250+</b><span>Client Reviews</span></div>
+        <div><b>505%</b><span>Avg. Organic Uplift</span></div>
+        <div><b>6</b><span>Core Channels</span></div>
+      </div>
+    </div>
+    <div class="orbit-wrap">
+      <div class="orbit-ring r1"><div class="node" data-label="SEO"></div></div>
+      <div class="orbit-ring r2"><div class="node" data-label="PPC"></div></div>
+      <div class="orbit-ring r3"><div class="node" data-label="Social"></div></div>
+      <div class="nucleus">ATOMIC<br>CORE</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="section-inner">
+    <span class="trust-label">Trusted across e-commerce, SaaS &amp; B2B —</span>
+    <div class="trust-logos">
+      <span>Brandspeak</span><span>Enbi Global</span><span>Ward Goodman</span><span>Evolution</span><span>Zing Events</span>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="head">
+      <div class="eyebrow">Core Services</div>
+      <h2>Every channel, one integrated strategy.</h2>
+      <p>Nine disciplines, run by specialists, coordinated as a single engine — so your budget compounds instead of competing with itself.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card"><span class="service-num">01</span><h3>End-to-End Marketing</h3><p>Full-service packages spanning SEO, PPC, social, content and email in one coordinated strategy.</p></div>
+      <div class="service-card"><span class="service-num">02</span><h3>Search Engine Optimisation</h3><p>Technical audits, content strategy and authoritative link building for sustainable organic growth.</p></div>
+      <div class="service-card"><span class="service-num">03</span><h3>Pay-Per-Click Advertising</h3><p>Google, Bing and Shopping campaigns engineered for maximum return on every pound spent.</p></div>
+      <div class="service-card"><span class="service-num">04</span><h3>Social Media Marketing</h3><p>Organic and paid campaigns across Meta, LinkedIn, TikTok and X that convert followers into customers.</p></div>
+      <div class="service-card"><span class="service-num">05</span><h3>Content Marketing</h3><p>SEO-driven blogs, whitepapers and video built for every stage of the buyer journey.</p></div>
+      <div class="service-card"><span class="service-num">06</span><h3>Email &amp; Automation</h3><p>Lifecycle campaigns and automated flows that nurture leads and lift customer lifetime value.</p></div>
+      <div class="service-card"><span class="service-num">07</span><h3>Conversion Optimisation</h3><p>A/B testing, heatmaps and journey mapping that turn existing traffic into more revenue.</p></div>
+      <div class="service-card"><span class="service-num">08</span><h3>Tag &amp; Data Management</h3><p>Tracking, conversion pixels and data layers configured for complete performance visibility.</p></div>
+      <div class="service-card"><span class="service-num">09</span><h3>Virtual Marketing Team</h3><p>A dedicated marketing department embedded in your business, minus the overhead.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="features on-dark">
+  <div class="section-inner">
+    <div class="head"><div class="eyebrow" style="color:rgba(255,255,255,0.6)">Why Atomic</div><h2>The mechanics behind the results.</h2></div>
+    <div class="features-grid">
+      <div><span class="feature-mark">◆ 01</span><h3>Strategy rooted in real data</h3><p>Every campaign starts with deep analytics, competitor research and audience modelling — never guesswork.</p></div>
+      <div><span class="feature-mark">◆ 02</span><h3>Multi-channel execution</h3><p>Search, social, email and content orchestrated together for consistent messaging and compounding results.</p></div>
+      <div><span class="feature-mark">◆ 03</span><h3>Transparent reporting</h3><p>No vanity metrics — custom dashboards track revenue, CAC and lifetime value in real time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-inner">
+    <div class="head"><div class="eyebrow">Our Process</div><h2>Six stages. One repeatable engine.</h2></div>
+    <div class="process-list">
+      <div class="process-row"><span class="process-num">01</span><h3>Audit &amp; Research</h3><p>We analyse your current presence, audit competitors and research your audience to establish a baseline.</p></div>
+      <div class="process-row"><span class="process-num">02</span><h3>Strategy &amp; Planning</h3><p>Goals, channel mix and KPIs are defined, with budget aligned to your highest-value opportunities.</p></div>
+      <div class="process-row"><span class="process-num">03</span><h3>Campaign Build</h3><p>Creative, landing pages and tracking are built with precision before a single pound goes live.</p></div>
+      <div class="process-row"><span class="process-num">04</span><h3>Launch &amp; Monitor</h3><p>Campaigns go live under close daily monitoring, with real-time alerts catching issues instantly.</p></div>
+      <div class="process-row"><span class="process-num">05</span><h3>Optimise &amp; Scale</h3><p>We A/B test, refine targeting and scale what's winning while cutting what isn't.</p></div>
+      <div class="process-row"><span class="process-num">06</span><h3>Report &amp; Iterate</h3><p>Monthly reports connect every activity back to ROI, with clear next steps for growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="head"><div class="eyebrow">Featured Work</div><h2>Case studies from the field.</h2></div>
+    <div class="services-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="service-card"><span class="service-num">App</span><h3>Language-Learning Platform</h3><p>End-to-end app design and development for an AI-powered language app, from onboarding to retention.</p></div>
+      <div class="service-card"><span class="service-num">Web</span><h3>Private Jet Charter</h3><p>A premium website rebuild to enhance credibility, streamline enquiries and lift conversion.</p></div>
+      <div class="service-card"><span class="service-num">UX</span><h3>Digital Gift Cards</h3><p>A QR-based digital gift card system built for mobile wallets across multiple markets.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="head"><div class="eyebrow">Client Reviews</div><h2>What our clients say.</h2></div>
+    <div class="testi-track">
+      <div class="testi-card"><p>"They've designed and built five websites for us, plus a complex back-end and custom event software. We're now launching apps through them too."</p><div class="testi-who"><span><b>Dan Bateman</b>Director, AIN Group</span><span>Google</span></div></div>
+      <div class="testi-card"><p>"The results matter most, but so has their commitment. Weekly calls with three consultants present — genuinely collaborative from day one."</p><div class="testi-who"><span><b>Jeremy Braune</b>Brandspeak</span><span>Clutch</span></div></div>
+      <div class="testi-card"><p>"Our ROAS on Facebook and Instagram averaged 4-6x, with highs of 15x in peak season. Previously we were seeing 0.5-2x on our own."</p><div class="testi-who"><span><b>Gary Mullen</b>Redline Competitions</span><span>Google</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--bg2)">
+  <div class="section-inner" style="max-width:840px;padding:0 40px;">
+    <div class="head"><div class="eyebrow">FAQs</div><h2>Questions, answered.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">How long before I see results? <span class="plus">+</span></button><div class="faq-a"><p>Paid media can deliver results within days. SEO typically takes 3–6 months to show significant growth. We set realistic expectations and report monthly.</p></div></div>
+      <div class="faq-item"><button class="faq-q">What budget do I need? <span class="plus">+</span></button><div class="faq-a"><p>Budgets vary by goals and industry. We work with businesses spending from £2,000 to £50,000+ per month on media, with transparent management fees.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do you measure success? <span class="plus">+</span></button><div class="faq-a"><p>We focus on revenue, qualified leads, cost per acquisition and lifetime value — not vanity metrics — with real-time dashboards.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Do I need a long-term contract? <span class="plus">+</span></button><div class="faq-a"><p>We recommend a minimum 3-month commitment for SEO, but paid media and social can run on flexible monthly agreements.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Can you work with our in-house team? <span class="plus">+</span></button><div class="faq-a"><p>Yes — we integrate with existing teams, handling specific channels or providing strategic oversight as needed.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="enquiry" class="cta-band">
+  <div class="section-inner">
+    <div class="cta-grid">
+      <div>
+        <div class="eyebrow" style="color:rgba(255,255,255,0.5)">Start a Project</div>
+        <h2>Let's build your next growth phase.</h2>
+        <p>Tell us about your goals and one of our strategists will get back to you within one working day with a clear plan.</p>
+        <div class="cta-locations">
+          <div><b>Headquarters Office</b>SWAYAMBHOO CHS, Plot no: 30/A-8, Gorai-1, Borivali West, Mumbai<br>+91 80801 51510</div>
+          <div><b>Support Center</b>Info@instavalue.com</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div id="formWrap">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="fullname" placeholder="Jane Smith" required></div>
+          <div class="form-group"><label>Email Address *</label><input type="email" id="email" placeholder="jane@company.com" required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="phone" placeholder="+91 98765 43210" required></div>
+          <div class="form-group"><label>Service Required *</label>
+            <select id="service">
+              <option value="End-to-End Marketing">End-to-End Marketing</option>
+              <option value="Search Engine Optimisation">Search Engine Optimisation</option>
+              <option value="Pay-Per-Click Advertising">Pay-Per-Click Advertising</option>
+              <option value="Social Media Marketing">Social Media Marketing</option>
+              <option value="Website Design &amp; Development">Website Design &amp; Development</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea id="message" rows="3" placeholder="Tell us a little about your goals..."></textarea></div>
+          
+          <div class="checkbox-row">
+            <input type="checkbox" id="badaConsent" required>
+            <label for="badaConsent">I accept the terms and conditions for receiving communication via SMS, WhatsApp, RCS, or Email from Instavalue SMS.</label>
+          </div>
+
+          <button class="submit-btn" onclick="submitForm()">Request Strategy Session</button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check">🎉</div>
+          <h4>Message Sent Successfully!</h4>
+          <p>Thank you! Our growth experts will reach out within 2 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SYNCHRONIZED FOOTER FROM CONTACT FILE ── -->
+<footer id="about">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Instavalue <span>SMS</span></div>
+      <div class="footer-desc">India's leading Bulk SMS & WhatsApp Messaging Service Provider. Enabling businesses to send important messages, OTPs, notifications and promotional content at scale.</div>
+      <div class="footer-contact">
+        <a href="mailto:Info@instavalue.com">✉️ Info@instavalue.com</a>
+        <a href="tel:+918080151510">📞 +91 80801 51510</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="#">Instavalue SMS</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="#">Articles</a>
+      <a href="#">FAQ</a>
+      <a href="#">Solutions</a>
+      <a href="#">API Documentation</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="footer-col">
+      <h4>Features & Pricing</h4>
+      <a href="#">Pricing Plans</a>
+      <a href="#">SMS Gateway API</a>
+      <a href="#">Features Overview</a>
+      <a href="#">WhatsApp API</a>
+      <a href="#">Voice Solutions</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Instavalue SMS. All rights reserved.</span>
+    <div style="display:flex;gap:16px;">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.parentElement;
+      const wasOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  function submitForm() {
+    const fullname = document.getElementById('fullname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const consent = document.getElementById('badaConsent').checked;
+
+    if (!fullname || !email || !phone || !service) {
+      alert('Please fill in all required fields (Name, Email, Phone, Service).');
+      return;
+    }
+    if (!consent) {
+      alert('Please accept the terms and conditions to continue.');
+      return;
+    }
+
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+</script>
+</body>
+</html>
